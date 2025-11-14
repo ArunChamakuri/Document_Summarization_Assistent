@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summary Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Document Summary</h1>
+
+    <h2>Summary ({{ length }})</h2>
+    <div class="text-box">
+        {{ summary | replace('\n', '<br>') | safe }}
+    </div>
+
+    <h2>Extracted Text</h2>
+    <div class="text-box">
+        {{ text | replace('\n', '<br>') | safe }}
+    </div>
+
+    <a href="/" class="back-btn">Upload Another Document</a>
+</div>
+
+</body>
+</html>

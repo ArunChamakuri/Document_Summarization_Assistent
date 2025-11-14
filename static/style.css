@@ -1,0 +1,114 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #407c50;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+    background: #ffffff47;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+button {
+    background-color:#1c3454;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover { 
+    background-color: #004db3;
+}
+
+
+.drop-area {
+    width: 100%;
+    box-sizing: border-box; 
+    max-width: 100%; 
+    padding: 40px;
+    border: 2px dashed #333;
+    border-radius: 10px;
+    text-align: center;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    margin-bottom: 10px; 
+}
+
+
+#fileInput {
+    display: none;
+}
+
+.drop-area.dragover {
+    background-color: #eef6ff;
+    border-color: #007bff;
+}
+
+
+#fileName {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.text-box {
+    background: #eee;
+    padding: 15px;
+    white-space: pre-wrap;
+    border-radius: 5px;
+}
+
+.back-btn {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0066ff;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: #004db3;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px;
+    }
+    .drop-area {
+        padding: 30px;
+    }
+    input, select, button {
+        font-size: 14px;
+    }
+}

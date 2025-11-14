@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Summary Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Document Summary Assistant</h1>
+
+    <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+
+        <div class="drop-area" id="dropArea">
+            <p id="dropText">Drag & Drop your PDF or Image here</p>
+            <p>or click to select</p>
+        </div>
+
+        <input type="file" id="fileInput" name="file" required>
+
+        <p id="fileName"></p>
+
+        <label>Summary Length:</label>
+        <select name="length">
+            <option value="short">Short</option>
+            <option value="medium" selected>Medium</option>
+            <option value="long">Long</option>
+        </select>
+
+        <button type="submit">Upload & Summarize</button>
+    </form>
+</div>
+
+<script>
+    const dropArea = document.getElementById("dropArea");
+    const fileInput = document.getElementById("fileInput");
+    const fileName = document.getElementById("fileName");
+
+    
+    dropArea.addEventListener("click", () => fileInput.click());
+
+    dropArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropArea.classList.add("dragover");
+    });
+
+    dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("dragover");
+    });
+
+    dropArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropArea.classList.remove("dragover");
+
+        if (e.dataTransfer.files.length > 0) {
+            fileInput.files = e.dataTransfer.files;
+            fileName.textContent = "Selected file: " + e.dataTransfer.files[0].name;
+        }
+    });
+
+    fileInput.addEventListener("change", () => {
+        if (fileInput.files.length > 0) {
+            fileName.textContent = "Selected file: " + fileInput.files[0].name;
+        }
+    });
+</script>
+
+</body>
+</html>
